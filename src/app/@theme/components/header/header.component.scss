@@ -57,6 +57,10 @@
         font-weight: nb-theme(font-weight-normal);
       }
     }
+    .datepicker {
+      width: 100%;
+    }
+
   }
 
   @include nb-for-theme(corporate) {
