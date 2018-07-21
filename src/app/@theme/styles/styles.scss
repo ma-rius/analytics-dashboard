@@ -27,5 +27,8 @@
   .custom-control .custom-control-indicator {
     border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
   }
+  .ngx-daterangepicker.theme-green {
+    border: none;
+  }
   @include bootstrap-rtl();
 };
