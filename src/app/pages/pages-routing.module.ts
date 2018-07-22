@@ -4,6 +4,10 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
+import {SentimentComponent} from './sentiment/sentiment.component';
+import {PersonalityComponent} from './personality/personality.component';
+import {NeedminingComponent} from './needmining/needmining.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +16,16 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DashboardComponent,
   }, {
+    path: 'sentiment',
+    component: SentimentComponent,
+  }, {
+    path: 'personality',
+    component: PersonalityComponent,
+  }, {
+    path: 'needmining',
+    component: NeedminingComponent,
+  },
+    {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
   }, {

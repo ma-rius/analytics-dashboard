@@ -14,17 +14,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Sentiment',
     icon: 'nb-keypad',
-    link: '/pages/dashboard',
+    link: '/pages/sentiment',
   },
   {
     title: 'Personality',
     icon: 'nb-compose',
-    link: '/pages/ui-features',
+    link: '/pages/personality',
   },
   {
     title: 'Needmining',
     icon: 'nb-gear',
-    link: '/pages/ui-features',
+    link: '/pages/needmining',
   },
   {
     title: 'Geospatial',
