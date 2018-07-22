@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       .subscribe((users: any) => this.user = users.daimler);
 
     this.options = {
-      theme: 'grape',
+      theme: 'teal',
       range: 'tm',
       dayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       presetNames: ['This Month', 'Last Month', 'This Week', 'Last Week', 'This Year', 'Last Year', 'Start', 'End'],
