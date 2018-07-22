@@ -1,13 +1,8 @@
-import { NgModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { NgxEchartsModule } from 'ngx-echarts';
+import {NgModule} from '@angular/core';
 
-import { ThemeModule } from '../../@theme/theme.module';
-import {HeatmapComponent} from './heatmap/heatmap.component';
+import {ThemeModule} from '../../@theme/theme.module';
 
-import { GeospatialRoutingModule, routedComponents } from './geospatial-routing.module';
-import {GeospatialComponent} from './geospatial.component';
+import {GeospatialRoutingModule, routedComponents} from './geospatial-routing.module';
 
 @NgModule({
   imports: [
@@ -19,4 +14,5 @@ import {GeospatialComponent} from './geospatial.component';
     ...routedComponents,
   ],
 })
-export class GeospatialModule { }
+export class GeospatialModule {
+}
