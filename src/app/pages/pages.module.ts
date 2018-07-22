@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { MyDashboardModule} from './my-dashboard/my-dashboard.module';
 import { SentimentModule } from './sentiment/sentiment.module';
 import { PersonalityModule } from './personality/personality.module';
 import { NeedminingModule } from './needmining/needmining.module';
@@ -17,7 +18,8 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    DashboardModule,
+    // DashboardModule,
+    MyDashboardModule,
     MiscellaneousModule,
     SentimentModule,
     PersonalityModule,

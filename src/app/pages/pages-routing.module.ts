@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
+import {MyDashboardComponent} from './my-dashboard/my-dashboard.component';
 import {SentimentComponent} from './sentiment/sentiment.component';
 import {PersonalityComponent} from './personality/personality.component';
 import {NeedminingComponent} from './needmining/needmining.component';
@@ -13,8 +14,8 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
-    path: 'dashboard',
-    component: DashboardComponent,
+    path: 'my-dashboard',
+    component: MyDashboardComponent,
   }, {
     path: 'sentiment',
     component: SentimentComponent,
@@ -55,7 +56,7 @@ const routes: Routes = [{
   },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'my-dashboard',
       pathMatch: 'full',
     }, {
       path: '**',
