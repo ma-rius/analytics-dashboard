@@ -43,7 +43,7 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 
-import { NgxDateRangePickerModule } from 'ngx-daterangepicker';
+import { NgDateRangePickerModule } from 'ng-daterangepicker';
 
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
@@ -104,7 +104,7 @@ const NB_THEME_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [...BASE_MODULES, ...NB_MODULES, NgxDateRangePickerModule],
+  imports: [...BASE_MODULES, ...NB_MODULES, NgDateRangePickerModule],
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS, ...PIPES],
   declarations: [...COMPONENTS, ...PIPES],
   entryComponents: [...ENTRY_COMPONENTS],
