@@ -1,4 +1,4 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -14,7 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Sentiment',
     icon: 'nb-keypad',
-    link: '/pages/ui-features',
+    link: '/pages/dashboard',
   },
   {
     title: 'Personality',
@@ -29,6 +29,51 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Geospatial',
     icon: 'nb-location',
-    link: '/pages/ui-features',
+    children: [
+      {
+        title: 'Heatmap',
+        link: '/pages/geospatial/heatmap',
+      },
+    ],
+  },
+  {
+    title: 'Auth',
+    icon: 'nb-locked',
+    children: [
+      {
+        title: 'Login',
+        link: '/auth/login',
+      },
+      {
+        title: 'Register',
+        link: '/auth/register',
+      },
+      {
+        title: 'Request Password',
+        link: '/auth/request-password',
+      },
+      {
+        title: 'Reset Password',
+        link: '/auth/reset-password',
+      },
+    ],
+  },
+  {
+    title: 'Charts',
+    icon: 'nb-bar-chart',
+    children: [
+      {
+        title: 'Echarts',
+        link: '/pages/charts/echarts',
+      },
+      {
+        title: 'Charts.js',
+        link: '/pages/charts/chartjs',
+      },
+      {
+        title: 'D3',
+        link: '/pages/charts/d3',
+      },
+    ],
   },
 ];
