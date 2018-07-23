@@ -1,6 +1,8 @@
-<nb-checkbox>Artificial Intelligence</nb-checkbox>
-<nb-checkbox>Blockchain</nb-checkbox>
-<nb-checkbox>E-mobility</nb-checkbox>
-<nb-checkbox>IoT</nb-checkbox>
-<!--todo define model-->
-<ng-daterangepicker class="datepicker" [(ngModel)]="value" [options]="options"></ng-daterangepicker>
+<nb-checkbox (change)="setAiSelection()">Artificial Intelligence</nb-checkbox>
+<nb-checkbox (change)="setBcSelection()">Blockchain</nb-checkbox>
+<nb-checkbox (change)="setEmSelection()">E-mobility</nb-checkbox>
+<nb-checkbox (change)="setIoTSelection()">IoT</nb-checkbox>
+<!--{{selection.datepicker_value}}-->
+<!--<ng-daterangepicker class="datepicker" [(ngModel)]="_selection.datepicker_value" (ngModelChange)="setSelection()" [options]="options"></ng-daterangepicker>-->
+<ng-daterangepicker class="datepicker" [(ngModel)]="selection.datepicker_value" [options]="options"></ng-daterangepicker>
+
