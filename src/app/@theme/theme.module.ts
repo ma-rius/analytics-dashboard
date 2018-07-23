@@ -24,6 +24,7 @@ import { NbSecurityModule } from '@nebular/security';
 import {
   FooterComponent,
   HeaderComponent,
+  // SelectionComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
   SwitcherComponent,
@@ -32,6 +33,9 @@ import {
   TinyMCEComponent,
   ThemeSwitcherListComponent,
 } from './components';
+
+import {SelectionComponent} from './components/header/selection/selection.component';
+
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
   OneColumnLayoutComponent,
@@ -71,6 +75,7 @@ const COMPONENTS = [
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
   HeaderComponent,
+  SelectionComponent,
   FooterComponent,
   SearchInputComponent,
   ThemeSettingsComponent,

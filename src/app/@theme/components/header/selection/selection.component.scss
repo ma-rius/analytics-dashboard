@@ -1,0 +1,14 @@
+@import '../../../styles/themes';
+
+@include nb-install-component() {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
+  .header-container {
+    .datepicker {
+      width: 100%;
+    }
+  }
+}
