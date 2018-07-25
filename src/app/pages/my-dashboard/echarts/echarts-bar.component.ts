@@ -31,9 +31,10 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   }
 
   refreshContent() {
-    // todo observable for API call
-    // this.dashboardBarService.getData(null);
-    this.data = [Math.random() * 100, 52, 200, 334, 390, 330, 220];
+    this.dashboardBarService.getData(null).subscribe(data => {
+      console.log(data);
+      this.data = [data['need_category'][0]['probability'], data['need_category'][1]['probability'], data['need_category'][2]['probability'], data['need_category'][3]['probability'], data['need_category'][5]['probability'], data['need_category'][6]['probability'], data['need_category'][7]['probability']];
+    });
     // todo update only data in this.options
     this.options = {
       'backgroundColor': '#ffffff',

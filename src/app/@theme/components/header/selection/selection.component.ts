@@ -31,7 +31,9 @@ export class SelectionComponent implements OnInit {
     };
 
   }
-
+  setDateSelection() {
+    this.selectionService.submitSelection(this.selection);
+  }
   setAiSelection() {
     this.selection.domains.artificial_intelligence = !this.selection.domains.artificial_intelligence;
     this.selectionService.submitSelection(this.selection);

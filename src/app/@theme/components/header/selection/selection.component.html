@@ -2,7 +2,6 @@
 <nb-checkbox (change)="setBcSelection()">Blockchain</nb-checkbox>
 <nb-checkbox (change)="setEmSelection()">E-mobility</nb-checkbox>
 <nb-checkbox (change)="setIoTSelection()">IoT</nb-checkbox>
-<!--{{selection.datepicker_value}}-->
 <!--<ng-daterangepicker class="datepicker" [(ngModel)]="_selection.datepicker_value" (ngModelChange)="setSelection()" [options]="options"></ng-daterangepicker>-->
-<ng-daterangepicker class="datepicker" [(ngModel)]="selection.datepicker_value" [options]="options"></ng-daterangepicker>
+<ng-daterangepicker class="datepicker" [(ngModel)]="selection.datepicker_value" (ngModelChange)="setDateSelection()" [options]="options"></ng-daterangepicker>
 
