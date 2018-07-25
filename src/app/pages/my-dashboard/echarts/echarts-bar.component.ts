@@ -8,7 +8,7 @@ import {Selection} from '../../../@core/model/selection';
 @Component({
   selector: 'ngx-echarts-bar',
   template: `
-    <div echarts [options]="options" class="echart"></div>
+    <div echarts [options]='options' class='echart'></div>
   `,
 })
 export class EchartsBarComponent implements AfterViewInit, OnDestroy {
@@ -22,6 +22,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   constructor(private theme: NbThemeService,
               private dashboardBarService: DashboardBarService,
               private _selectionService: SelectionService) {
+    this.data = [300, 52, 200, 334, 390, 330, 220];
     this.subscription = _selectionService.selectionObservable.subscribe((selection) => {
       this.selection = selection;
       this.refreshContent();
@@ -30,10 +31,85 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   }
 
   refreshContent() {
-    // todo observable
+    // todo observable for API call
     // this.dashboardBarService.getData(null);
-    this.data = [300, 52, 200, 334, 390, 330, 220];
-    alert(this.data);
+    this.data = [Math.random() * 100, 52, 200, 334, 390, 330, 220];
+    // todo update only data in this.options
+    this.options = {
+      'backgroundColor': '#ffffff',
+      'color': [
+        '#9b92ff',
+      ],
+      'tooltip': {
+        'trigger': 'axis',
+        'axisPointer': {
+          'type': 'shadow',
+        },
+      },
+      'grid': {
+        'left': '3%',
+        'right': '4%',
+        'bottom': '3%',
+        'containLabel': true,
+      },
+      'xAxis': [
+        {
+          'type': 'category',
+          'data': [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun',
+          ],
+          'axisTick': {
+            'alignWithLabel': true,
+          },
+          'axisLine': {
+            'lineStyle': {
+              'color': '#bbbbbb',
+            },
+          },
+          'axisLabel': {
+            'textStyle': {
+              'color': '#484848',
+            },
+          },
+
+        },
+      ],
+      'yAxis': [
+        {
+          'type': 'value',
+          'axisLine': {
+            'lineStyle': {
+              'color': '#bbbbbb',
+            },
+          },
+          'splitLine': {
+            'lineStyle': {
+              'color': '#ebeef2',
+            },
+          },
+          'axisLabel': {
+            'textStyle': {
+              'color': '#484848',
+            },
+          },
+
+        },
+      ],
+      'series': [
+        {
+          'name': 'Score',
+          'type': 'bar',
+          'barWidth': '60%',
+          'data': this.data,
+        },
+      ],
+    };
   }
 
   ngAfterViewInit() {
@@ -105,6 +181,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
           },
         ],
       };
+
     });
   }
 
