@@ -29,7 +29,7 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy {
         },
         legend: {
           left: 'left',
-          data: ['Line 1', 'Line 2', 'Line 3'],
+          data: ['2015', '2016', '2017'],
           textStyle: {
             color: echarts.textColor,
           },

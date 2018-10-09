@@ -15,16 +15,8 @@ export class SelectionService {
   submitSelection(selection: Selection) {
     this.selection = selection;
     this.selectionSource.next(selection);
-  }
+    // alert(JSON.stringify(this.selection));
 
-  getDateFrom(): string {
-    // parse value from ng-daterangepicker
-    return '';
-  }
-
-  getDateTo(): string {
-    // parse value from ng-daterangepicker
-    return null;
   }
 
 }
