@@ -26,12 +26,27 @@ export class SelectionComponent implements OnInit {
       dayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       presetNames: ['This Month', 'Last Month', 'This Week', 'Last Week', 'This Year', 'Last Year', 'Start', 'End'],
       dateFormat: 'd/MM/y',
-      outputFormat: 'DD/MM/YYYY',
+      outputFormat: 'MM/DD/YYYY',
       startOfWeek: 1,
     };
 
+    // set initial value of dateFrom and DateTo (changed when user sets a new date)
+    // when range: 'tm', the initial value is 'this month',
+      // i.e. the range from the first to the last day of the current month
+
+    // get last day of the current month
+    const now = new Date();
+    const month = now.getMonth() + 1; // January gives 0
+    const lastDayInMonth = new Date(now.getFullYear(), month, 0).getDate();
+
+  this.selection.dateFrom = month.toString() + '/' + '01/' + now.getFullYear().toString();
+  this.selection.dateTo = month.toString() + '/' + lastDayInMonth.toString() + '/' + now.getFullYear().toString();
+
   }
   setDateSelection() {
+    // alert(JSON.stringify(this.selection));
+    this.selection.dateFrom = JSON.stringify(this.selection.datepicker_value).split('-')[0].replace('\"', '');
+    this.selection.dateTo = JSON.stringify(this.selection.datepicker_value).split('-')[1].replace('\"', '');
     this.selectionService.submitSelection(this.selection);
   }
   setAiSelection() {
