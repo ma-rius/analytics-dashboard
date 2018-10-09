@@ -16,101 +16,102 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   themeSubscription: any;
   selection: Selection = new Selection();
   data: Array<any>;
+  topics: Array<any>;
 
   private subscription: Subscription;
 
   constructor(private theme: NbThemeService,
               private dashboardBarService: DashboardBarService,
               private _selectionService: SelectionService) {
-    this.data = [300, 52, 200, 334, 390, 330, 220];
+
     this.subscription = _selectionService.selectionObservable.subscribe((selection) => {
       this.selection = selection;
       this.refreshContent();
     });
-
   }
 
   refreshContent() {
-    this.dashboardBarService.getData(null).subscribe(data => {
-      console.log(data);
-      this.data = [data['need_category'][0]['probability'], data['need_category'][1]['probability'], data['need_category'][2]['probability'], data['need_category'][3]['probability'], data['need_category'][5]['probability'], data['need_category'][6]['probability'], data['need_category'][7]['probability']];
+    this.topics = [];
+    if (this.selection.domains.artificial_intelligence) this.topics.push('AI');
+    if (this.selection.domains.blockchain) this.topics.push('Blockchain');
+    if (this.selection.domains.e_mobility) this.topics.push('E-mobility');
+    if (this.selection.domains.internet_of_things) this.topics.push('IoT');
+
+    this.dashboardBarService.getData(this.selection).subscribe(data => {
+      this.data = [];
+      if (this.selection.domains.artificial_intelligence) this.data.push(data['ai']);
+      if (this.selection.domains.blockchain) this.data.push(data['blockchain']);
+      if (this.selection.domains.e_mobility) this.data.push(data['emobility']);
+      if (this.selection.domains.internet_of_things) this.data.push(data['iot']);
+
+      this.options = {
+        'backgroundColor': '#ffffff',
+        'color': [
+          '#9b92ff',
+        ],
+        'tooltip': {
+          'trigger': 'axis',
+          'axisPointer': {
+            'type': 'shadow',
+          },
+        },
+        'grid': {
+          'left': '3%',
+          'right': '4%',
+          'bottom': '3%',
+          'containLabel': true,
+        },
+        'xAxis': [
+          {
+            'type': 'category',
+            'data': this.topics,
+            'axisTick': {
+              'alignWithLabel': true,
+            },
+            'axisLine': {
+              'lineStyle': {
+                'color': '#bbbbbb',
+              },
+            },
+            'axisLabel': {
+              'textStyle': {
+                'color': '#484848',
+              },
+            },
+
+          },
+        ],
+        'yAxis': [
+          {
+            'type': 'value',
+            'axisLine': {
+              'lineStyle': {
+                'color': '#bbbbbb',
+              },
+            },
+            'splitLine': {
+              'lineStyle': {
+                'color': '#ebeef2',
+              },
+            },
+            'axisLabel': {
+              'textStyle': {
+                'color': '#484848',
+              },
+            },
+
+          },
+        ],
+        'series': [
+          {
+            'name': 'Score',
+            'type': 'bar',
+            'barWidth': '60%',
+            'data': this.data,
+          },
+        ],
+      };
     });
-    // todo update only data in this.options
-    this.options = {
-      'backgroundColor': '#ffffff',
-      'color': [
-        '#9b92ff',
-      ],
-      'tooltip': {
-        'trigger': 'axis',
-        'axisPointer': {
-          'type': 'shadow',
-        },
-      },
-      'grid': {
-        'left': '3%',
-        'right': '4%',
-        'bottom': '3%',
-        'containLabel': true,
-      },
-      'xAxis': [
-        {
-          'type': 'category',
-          'data': [
-            'Mon',
-            'Tue',
-            'Wed',
-            'Thu',
-            'Fri',
-            'Sat',
-            'Sun',
-          ],
-          'axisTick': {
-            'alignWithLabel': true,
-          },
-          'axisLine': {
-            'lineStyle': {
-              'color': '#bbbbbb',
-            },
-          },
-          'axisLabel': {
-            'textStyle': {
-              'color': '#484848',
-            },
-          },
-
-        },
-      ],
-      'yAxis': [
-        {
-          'type': 'value',
-          'axisLine': {
-            'lineStyle': {
-              'color': '#bbbbbb',
-            },
-          },
-          'splitLine': {
-            'lineStyle': {
-              'color': '#ebeef2',
-            },
-          },
-          'axisLabel': {
-            'textStyle': {
-              'color': '#484848',
-            },
-          },
-
-        },
-      ],
-      'series': [
-        {
-          'name': 'Score',
-          'type': 'bar',
-          'barWidth': '60%',
-          'data': this.data,
-        },
-      ],
-    };
   }
 
   ngAfterViewInit() {
@@ -137,7 +138,12 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: [
+              // 'AI',
+              // 'Blockchain',
+              // 'E-mobility',
+              // 'IoT',
+            ],
             axisTick: {
               alignWithLabel: true,
             },
@@ -178,7 +184,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
             name: 'Score',
             type: 'bar',
             barWidth: '60%',
-            data: this.data,
+            data: [],
           },
         ],
       };
