@@ -5,10 +5,8 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DashboardBarService {
-  // private apiUrl = 'http://129.13.133.28/api/get-tweets-by-time-and-limit/?start=1538431405176&end=1538435256197';
   private apiUrl = 'http://129.13.133.28/api/bar-chart-by-time-and-subject/';
 
-  // private apiUrl = 'https://cpp80390de.execute-api.eu-central-1.amazonaws.com/prod';
   constructor(private http: HttpClient) {
   }
 

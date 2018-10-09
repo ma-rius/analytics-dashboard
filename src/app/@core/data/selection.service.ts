@@ -15,7 +15,6 @@ export class SelectionService {
   submitSelection(selection: Selection) {
     this.selection = selection;
     this.selectionSource.next(selection);
-    // alert(JSON.stringify(this.selection));
 
   }
 
