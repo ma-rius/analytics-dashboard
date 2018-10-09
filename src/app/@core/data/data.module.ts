@@ -7,6 +7,7 @@ import {StateService} from './state.service';
 import {SmartTableService} from './smart-table.service';
 import {PlayerService} from './player.service';
 import {DashboardBarService} from './dashboard-bar.service';
+import {DashboardPieService} from './dashboard-pie.service';
 import {SelectionService} from './selection.service';
 
 const SERVICES = [
@@ -16,6 +17,7 @@ const SERVICES = [
   SmartTableService,
   PlayerService,
   DashboardBarService,
+  DashboardPieService,
   SelectionService,
 ];
 
