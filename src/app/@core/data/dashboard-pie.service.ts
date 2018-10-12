@@ -5,8 +5,8 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DashboardPieService {
-  // TODO change to Pie-Chart API
-  private apiUrl = 'http://129.13.133.28/api/bar-chart-by-time-and-subject/';
+
+  private apiUrl = 'http://129.13.133.28/api/pie-chart-by-time-and-subject/';
 
 
   constructor(private http: HttpClient) {
